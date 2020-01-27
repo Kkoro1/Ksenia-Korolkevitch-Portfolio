@@ -183,9 +183,9 @@ img{
   object-fit: cover;
 }
 
-.project-title {
-  font-size: 2rem;
-  padding: 2rem 0.5rem;
+.project-tile {
+  font-size: 1.7rem;
+  padding: 1rem 0.5rem;
 }
 
 .btn {
