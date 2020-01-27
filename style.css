@@ -152,7 +152,7 @@ img{
   margin-bottom: 6rem;
 }
 
-@media (max-width: 30.625em) {
+@media (max-width: 35.625em) {
   .projects-section {
     padding: 6rem 1rem;
   }
@@ -178,17 +178,45 @@ img{
 }
 
 .project-image {
-  height: calc(100% - 6.8rem);
-  display:block;
-  margin-left: auto;
-  margin-right: auto;
+  height: calc(100% - 1.8rem);
   width: 100%;
   object-fit: cover;
 }
-
+.project-image:hover img {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
 .project-tile {
+  border:solid 5px #AB90D4;
+  box-sizing:border-box;  
   font-size: 1.7rem;
-  padding: 1rem 0.5rem;
+  padding: 1rem 0.5rem;  
+  position:relative;
+  height: 32em;
+  background-size:cover;
+  background-position:0% 50%;
+}
+
+.project-tile > p {
+	align-items:center;
+	background-color:#AB90D4;
+	bottom:0;
+	color:#fafafa;
+	display:flex;
+	font-weight:bold;
+	justify-content:center;
+	left:0;
+	padding:10px;
+	position:absolute;	
+	text-align:center;
+	margin:0;
+	width:100%;
+	height:10rem;
+}
+
+.project-tile > span {
+	display:inline-block;
+	margin:auto 0.8rem;
+	flex-grow:1;
 }
 
 .btn {
