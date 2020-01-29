@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
 }
-
 *,
 *::before,
 *::after {
@@ -156,7 +155,6 @@ img{
   .projects-section {
     padding: 6rem 1rem;
   }
-
   .projects-grid {
     grid-template-columns: 1fr;
   }
@@ -179,27 +177,26 @@ img{
 
 .project-image {
   height: calc(100% - 1.8rem);
-  display:block;
-  margin-left: auto;
-  margin-right: auto;
   width: 100%;
   object-fit: cover;
 }
+
 .project-image:hover img {
   box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
+
 .project-tile {
   border:solid 5px #AB90D4;
-  box-sizing:border-box;  
+  box-sizing:border-box;
   font-size: 1.7rem;
-  padding: 1rem 0.5rem;  
+  padding: 1rem 0.5rem;
   position:relative;
-  height: 32em;
+  height: 30em;
   background-size:cover;
   background-position:0% 50%;
 }
 
-.project-title{
+.project-tile > p {
 	align-items:center;
 	background-color:#AB90D4;
 	bottom:0;
@@ -209,7 +206,7 @@ img{
 	justify-content:center;
 	left:0;
 	padding:10px;
-	position:absolute;	
+	position:absolute;
 	text-align:center;
 	margin:0;
 	width:100%;
@@ -220,6 +217,27 @@ img{
 	display:inline-block;
 	margin:auto 0.8rem;
 	flex-grow:1;
+}
+
+.project-tile > div {
+    overflow:scroll;
+}
+
+.project-tile iframe{
+   border: 0;
+   height: 90%;
+   left: 0;
+   top: 0;
+   width: 100%;
+}
+
+.project-expandable {
+  display: none;
+  width: 100%;
+  height: 100px;
+  background-color: orange;
+  margin-bottom: 15px;
+
 }
 
 .btn {
@@ -291,4 +309,52 @@ footer i {
     flex-direction: column;
     text-align: center;
   }
+}
+
+div.back
+{
+    visibility: hidden;
+    background-color:rgba(10,10,10,0.5);
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:100%;
+    height:100%;
+    z-index: 98;
+}
+table.floatingHeader{
+    color:#ffffff;
+    background-color:rgba(10,10,90,0.5);
+    padding:1px;
+    width:100%;
+}
+div.popup
+{
+    border:1px solid black;	
+    background-color:rgba(255,255,255,1);
+    visibility: hidden;
+    position:absolute;
+    left:0px;
+    top:0px;
+    font-family:verdana;
+    font-weight:bold;
+    padding:10px;
+    z-index: 99;
+}
+div.hidden
+{
+    visibility: hidden;
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:0px;
+    height:0px;
+}
+
+div.details
+{
+    text-align:left;
+    overflow:auto;
+    height:90%;
+
 }
