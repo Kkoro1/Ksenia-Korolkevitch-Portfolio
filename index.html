@@ -1,162 +1,507 @@
 <!doctype html>
+
+
 <html><head>
+
+
 <meta charset="utf-8">
+
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
 <title>Ksenia's Portfolio ICS4U</title>
+
+
 <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
 <link rel = "stylesheet" type = "text/css" href = "style.css" />
+	<script  language="javascript">
+var originalDivHTML = "";
+var selectedDiv = "";
+
+function hidePopup(){
+    document.getElementById('back').style.visibility = "hidden";
+    originalDivHTML = "";
+	if ( selectedDiv != ""){
+		selectedDiv = "";
+		hiddenFloatingDiv(selectedDiv);
+	}
+}
+
+function hiddenFloatingDiv(divId){
+    document.getElementById(divId).style.visibility = "hidden";
+    document.getElementById(divId).className = "hidden";
+    document.getElementById('back').style.visibility = "hidden";
+    originalDivHTML = "";
+}
+function displayFloatingDiv(divId, title, width, height, left, top)
+{
+	selectedDiv = divId;
+    var doc = document.documentElement;
+    var leftAdj = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
+    var topAdj = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
+
+    document.getElementById('back').style.width = document.body.clientWidth + 'px';
+    document.getElementById('back').style.height = document.body.clientHeight + 'px';
+    document.getElementById('back').style.left = '0px';
+    document.getElementById('back').style.top = '0px';
+    document.getElementById('back').style.visibility = 'visible';
+
+   	var parent = document.getElementById(divId);
+
+    parent.style.width = width + 'px';
+    parent.style.height = height + 'px';
+    parent.style.left = (left + leftAdj) + 'px';
+    parent.style.top = (top + topAdj) + 'px';
+
+    var addHeader;
+
+    if (originalDivHTML == ""){
+    	var elms = parent.getElementsByTagName("div");
+ 		for (var i = 0; i < elms.length; i++) {
+        	originalDivHTML += elms[i].outerHTML;
+        }
+	}
+    addHeader = '<table class="floatingHeader">' +
+                '<tr><td ondblclick="void(0);" onmouseover="over=true;" onmouseout="over=false;" style="cursor:move;height:18px">' + title + '</td>' +
+                '<td style="width:18px" align="right"><a style="text-decoration:none;color:#ffffff" href="javascript:hiddenFloatingDiv(\'' + divId + '\');">X</a></td></tr></table>';
+    document.getElementById(divId).innerHTML = addHeader + originalDivHTML;
+    document.getElementById(divId).style.visibility = "visible";
+    document.getElementById(divId).className = "popup";
+}
+</script>
+
+
 </head>
+
+
 <body>
+
+
 <nav id="navbar" class="nav">
+
+
   <ul class="nav-list">
+
+
     <li>
+
+
       <a href="#welcome-section">About</a>
+
+
     </li>
+
+
     <li>
+
+
       <a href="#projects">Work</a>
+
+
     </li>
+
+
     <li>
+
+
       <a href="#contact">Contact</a>
+
+
     </li>
+
+
   </ul>
+
+
 </nav>
 
+
+
+
+
 <section id="welcome-section" class="welcome-section">
+
+
   <h1>Ksenia's Portfolio</h1>
+
+
   <p>ICS4U</p>
+
+
 </section>
+
+
+
+
 
 <section id="projects" class="projects-section">
-  <h2 class="projects-section-header">My projects and works from the semester</h2>
- 
-  <div class="projects-grid">  
 
-    <a href="https://www.khanacademy.org/computing/ap-computer-science-principles" target="blank" class="project project-tile" style="background-image:url(https://user-images.githubusercontent.com/36044703/73139056-ba3a8e00-4037-11ea-8771-2243c13dd360.png)">
-      <!-- <img class="project-image" alt="AP computer science principles" src="https://user-images.githubusercontent.com/36044703/73139056-ba3a8e00-4037-11ea-8771-2243c13dd360.png"/> -->
-      <p class="project-title">
+
+  <h2 class="projects-section-header">My projects and works from the semester</h2>
+
+  <div class="projects-grid"> 
+	
+	<div class="project project-tile"  style="text-align:left; background-image:url(https://user-images.githubusercontent.com/36044703/73139056-ba3a8e00-4037-11ea-8771-2243c13dd360.png);" data-target="1">
+		 <p><a href="https://www.khanacademy.org/computing/ap-computer-science-principles" target="blank" >
+
         <span class="code">&lt;</span>
-        1. AP Computer Science Principles
+		1. AP Computer Science Principles
+
         <span class="code">&#47;&gt;</span>
-      </p>
-    </a>
-   
-    <a href="https://www.khanacademy.org/computer-programming/spin-off-of-project-make-it-rain/5545883173158912" target="blank" class="project project-tile" style="background-image:url(https://user-images.githubusercontent.com/36044703/73139927-34bbdb80-4041-11ea-868d-bd450e56351b.png)">
-      <!--<img alt="make it rain" src="https://user-images.githubusercontent.com/36044703/73139927-34bbdb80-4041-11ea-868d-bd450e56351b.png" class="project-image"/>-->
-      <p class="project-title">
+		</a>
+      </p>	
+	</div>
+
+
+	<div class="project project-tile" data-target="2">  
+
+		<div><script src="https://www.khanacademy.org/computer-programming/spin-off-of-project-make-it-rain/5545883173158912/embed.js?editor=no&buttons=no&author=no&embed=yes"></script></div>
+
+		<a href="https://www.khanacademy.org/computer-programming/spin-off-of-project-make-it-rain/5545883173158912" target="blank"> 
+
+		  <p>
+
+			<span class="code">&lt;</span>
+
+			2. Intro to JS: Drawing and Animation
+
+			<span class="code">&#47;&gt;</span>
+
+		  </p>
+
+		</a>		
+		
+		<a href="javascript:displayFloatingDiv('project2', '2. Intro to JS: Drawing and Animation', window.innerWidth/2, window.innerHeight/2, window.innerWidth/4, window.innerHeight/4);">Details...</a>
+	</div>
+
+	  <div class="hidden" id="project2"><div class="details">Learned how to use Arrays in JavaScript...
+		  To make an animation of rain, it's best if we use arrays to keep track of the drops and their different properties. Start with this simple code and build on it to make a cool rain animation. Here are some ideas for what you could do:
+		  Add more drops to the arrays.
+		  Make it so that the drops start back at the top once they've reached the bottom, using a conditional.
+		  Make an array of colors, so that every drop is a different color.
+		  Make other things rain, like snowflakes (using more shape commands) or avatars (using the image commands).
+		  Make it so that when the user clicks, a new drop is added to the array.
+		  Initialize the arrays using a for loop and random() function, at the beginning of the program.
+	  </div></div>
+
+	<div class="project project-tile"  data-target="3">  
+
+		<div><script src="https://www.khanacademy.org/computer-programming/spin-off-of-project-famous-people/5317489042358272/embed.js?editor=yes&buttons=no&author=no&embed=yes"></script></div> 
+
+		<a href="https://www.khanacademy.org/computer-programming/spin-off-of-project-famous-people/5317489042358272" target="blank"> 
+		  <p>
+
+			<span class="code">&lt;</span>
+
+				3. Intro to SQL: Querying and Managing Data
+			<span class="code">&#47;&gt;</span>
+
+		  </p>
+
+		</a>
+		<a href="javascript:displayFloatingDiv('project3', '3. Intro to SQL: Querying and Managing Data', window.innerWidth/2, window.innerHeight/2, window.innerWidth/4, window.innerHeight/4);">Details...</a>
+	</div>
+	  <div class="hidden" id="project3"><div class="details">
+	  In this project, you’re going to make your own table with some small set of “famous people”, then make more tables about things they do and join those to create nice human readable lists.
+
+	  For example, here are types of famous people and the questions your data could answer:
+
+	  Movie stars: What movies are they in? Are they married to each other?
+	  Singers: What songs did they write? Where are they from?
+	  Authors: What books did they write?
+	  Fictional characters: How are they related to other characters? What books do they show up in?
+	  </div></div>
+
+	 <div class="project project-tile"  data-target="4">  
+
+		<div><script src="https://www.khanacademy.org/computer-programming/spin-off-of-project-memory/5854302012211200/embed.js?editor=no&buttons=no&author=no&embed=yes"></script></div> 
+
+		<a href="https://www.khanacademy.org/computer-programming/spin-off-of-project-memory/5854302012211200" target="blank"> 
+
+		  <p>
+
+			<span class="code">&lt;</span>
+
+			4. Advanced JS: Games & Visualizations
+
+			<span class="code">&#47;&gt;</span>
+
+		  </p>
+
+		</a>
+
+	</div>  
+
+
+	 <div class="project project-tile"  data-target="5">  
+
+		<div><script src="https://www.khanacademy.org/computer-programming/spin-off-of-project-paint-splatter/6742430301257728/embed.js?editor=no&buttons=no&author=no&embed=yes"></script></div> 
+
+		<a href="https://www.khanacademy.org/computer-programming/spin-off-of-project-paint-splatter/6742430301257728" target="blank"> 
+
+		<p>
+
+			<span class="code">&lt;</span>
+
+			5. Advanced JS: Natural Simulations
+
+			<span class="code">&#47;&gt;</span>
+
+		  </p>
+
+		</a>
+
+	</div> 
+
+	  
+
+<!--<iframe src="https://www.khanacademy.org/computer-science/spin-off-of-project-recursive-art/4819623306035200></iframe> -->
+		
+<div class="project project-tile"  style="text-align:left; background-image:url(https://user-images.githubusercontent.com/36044703/73140378-2d4b0100-4046-11ea-90df-e274a91c76e9.png);" data-target="6">
+		 <p><a href="https://www.khanacademy.org/computing/computer-programming/html-css-js" target="blank" >
+
         <span class="code">&lt;</span>
-        2. Intro to JS: Drawing and Animation
+
+        6. HTML/JS: Making webpages interactive
+
         <span class="code">&#47;&gt;</span>
+		</a>
       </p>
-    </a>
-   
-    <a href="https://www.khanacademy.org/computer-programming/spin-off-of-project-famous-people/5317489042358272" target="blank" class="project project-tile" style="background-image:url(https://user-images.githubusercontent.com/36044703/73140235-b3664800-4044-11ea-91df-6fa9e8d79db2.png)">
-      <!--<img alt="famous people" src="https://user-images.githubusercontent.com/36044703/73140235-b3664800-4044-11ea-91df-6fa9e8d79db2.png" class="project-image">-->
-      <p class="project-title">
+	
+	</div>
+
+
+	 <div class="project project-tile"  data-target="7">  
+
+		<div><script src="https://www.khanacademy.org/computer-programming/spin-off-of-project-word-game/5673184201244672/embed.js?editor=yes&buttons=no&author=no&embed=yes"></script></div> 
+
+		<a href="https://www.khanacademy.org/computer-programming/spin-off-of-project-word-game/5673184201244672" target="blank"> 
+
+		  <p>
+
+			<span class="code">&lt;</span>
+
+			7. HTML/JS: Making webpages interactive with jQuery
+
+			<span class="code">&#47;&gt;</span>
+
+		  </p>
+
+		</a>
+
+	</div>  
+
+
+<div class="project project-tile"  style="text-align:left; background-image:url(https://user-images.githubusercontent.com/36044703/73140471-3c7e7e80-4047-11ea-8bde-0363b051d4fc.png);" data-target="8">
+		 <p><a href="https://www.khanacademy.org/computer-science/spin-off-of-project-recursive-art/4819623306035200" target="blank" >
+
         <span class="code">&lt;</span>
-        3. Intro to SQL: Querying and Managing Data
-        <span class="code">&#47;&gt;</span>
-      </p>
-    </a>
-   
-    <a href="https://www.khanacademy.org/computer-programming/spin-off-of-project-memory/5854302012211200" target="blank" class="project project-tile" style="background-image:url(https://user-images.githubusercontent.com/36044703/73140272-2374ce00-4045-11ea-9a5c-28ccd2f00e97.png)">
-      <!--<img alt="memory++" src="https://user-images.githubusercontent.com/36044703/73140272-2374ce00-4045-11ea-9a5c-28ccd2f00e97.png" class="project-image">-->
-      <p class="project-title">
-        <span class="code">&lt;</span>
-        4. Advanced JS: Games & Visualizations
-        <span class="code">&#47;&gt;</span>
-      </p>
-    </a>
-   
-    <a href="https://www.khanacademy.org/computer-programming/spin-off-of-project-paint-splatter/6742430301257728" target="blank" class="project project-tile" style="background-image:url(https://user-images.githubusercontent.com/36044703/73140322-a5fd8d80-4045-11ea-85b7-d60d9600842e.png)">
-      <!--<img alt="paint splatter" src="https://user-images.githubusercontent.com/36044703/73140322-a5fd8d80-4045-11ea-85b7-d60d9600842e.png" class="project-image">-->
-      <p class="project-title">
-        <span class="code">&lt;</span>
-        5. Advanced JS: Natural Simulations
-        <span class="code">&#47;&gt;</span>
-      </p>
-    </a>
-   
-    <a href="https://www.khanacademy.org/computing/computer-programming/html-css-js" target="blank" class="project project-tile"  style="background-image:url(https://user-images.githubusercontent.com/36044703/73140378-2d4b0100-4046-11ea-90df-e274a91c76e9.png)">
-      <!--<img alt="html/js making webpages interactive" src="https://user-images.githubusercontent.com/36044703/73140378-2d4b0100-4046-11ea-90df-e274a91c76e9.png" class="project-image">-->
-      <p class="project-title">
-        <span class="code">&lt;</span>
-        6. HTML/JS: Making webpages interative
-        <span class="code">&#47;&gt;</span>
-      </p>
-    </a>
-   
-    <a href="https://www.khanacademy.org/computer-programming/spin-off-of-project-word-game/5673184201244672" target="blank" class="project project-tile" style="background-image:url(https://user-images.githubusercontent.com/36044703/73140438-e578a980-4046-11ea-928a-ed2e95ea8148.png)">>
-      <!--<img alt="word game" src="https://user-images.githubusercontent.com/36044703/73140438-e578a980-4046-11ea-928a-ed2e95ea8148.png" class="project-image">-->
-      <p class="project-title">
-        <span class="code">&lt;</span>
-        7. HTML/JS: Making webpages interactive with jQuery
-        <span class="code">&#47;&gt;</span>
-      </p>
-    </a>
-   
-    <a href="https://www.khanacademy.org/computer-science/spin-off-of-project-recursive-art/4819623306035200" target="blank" class="project project-tile" style="background-image:url(https://user-images.githubusercontent.com/36044703/73140471-3c7e7e80-4047-11ea-8bde-0363b051d4fc.png)">
-      <!--<img alt="Algorithms" src="https://user-images.githubusercontent.com/36044703/73140471-3c7e7e80-4047-11ea-8bde-0363b051d4fc.png" class="project-image">-->
-      <p class="project-title">
-        <span class="code">&lt;</span>
+
         8. Algorithms: Recursive Art
+
         <span class="code">&#47;&gt;</span>
+		</a>
       </p>
-    </a>
-   
-    <a href="https://editor.p5js.org/Kkoro1/sketches/N5QZlJQSq" target="blank" class="project project-tile" style="background-image:url(https://user-images.githubusercontent.com/36044703/73140539-fbd33500-4047-11ea-9ba5-fe4ccc6306ac.png)">
-      <!--<img alt="Cardioid Visualization" src="https://user-images.githubusercontent.com/36044703/73140539-fbd33500-4047-11ea-9ba5-fe4ccc6306ac.png" class="project-image">-->
-      <p class="project-title">
+	
+	</div>
+  
+
+	<div class="project project-tile" data-target="9"> 
+		<iframe src="https://editor.p5js.org/Kkoro1/sketches/N5QZlJQSq/index.html"  seamless></iframe> 
+		<a href="https://editor.p5js.org/Kkoro1/sketches/N5QZlJQSq" target="blank"> 
+		  <p>
+			<span class="code">&lt;</span>
+			9.a Coding Challenge: Cardioid Visualization
+			<span class="code">&#47;&gt;</span>
+		  </p>
+		</a>
+	</div>   
+
+
+	<div class="project project-tile" data-target="10"> 
+
+		<iframe src="https://editor.p5js.org/Kkoro1/sketches/N1igLkEdv/index.html"  seamless sandbox="allow-scripts allow-same-origin allow-presentation"></iframe>
+
+		<a href="https://editor.p5js.org/Kkoro1/sketches/N1igLkEdv" target="blank"> 
+
+		  <p>
+
+			<span class="code">&lt;</span>
+
+			9.b Coding Challenge: Math Roses
+
+			<span class="code">&#47;&gt;</span>
+
+		  </p>
+
+		</a>
+
+	</div>  
+
+	<div class="project project-tile"  style="text-align:left; background-image:url(https://user-images.githubusercontent.com/36044703/73140622-f4f8f200-4048-11ea-9972-a254b6707734.png);" data-target="11">
+		 <p><a href="https://www.freecodecamp.org/kkoro1" target="blank" >
+
         <span class="code">&lt;</span>
-        9.a Coding Challenge: Cardioid Visualization
-        <span class="code">&#47;&gt;</span>
-      </p>
-    </a>
-   
-    <a href="https://editor.p5js.org/Kkoro1/sketches/N1igLkEdv" target="blank" class="project project-tile"  style="background-image:url(https://user-images.githubusercontent.com/36044703/73140594-c11dcc80-4048-11ea-8637-14d9d6091407.png)">
-      <!--<img alt="creative refactor of math rose" src="https://user-images.githubusercontent.com/36044703/73140594-c11dcc80-4048-11ea-8637-14d9d6091407.png">-->
-      <p class="project-title">
-        <span class="code">&lt;</span>
-        9.b Coding Challenge: Math Roses
-        <span class="code">&#47;&gt;</span>
-      </p>
-    </a>
-   
-    <a href="https://www.freecodecamp.org/kkoro1" target="blank" class="project project-tile" style="background-image:url(https://user-images.githubusercontent.com/36044703/73140622-f4f8f200-4048-11ea-9972-a254b6707734.png)">
-      <!--<img alt="freecodecamp js certification" src="https://user-images.githubusercontent.com/36044703/73140622-f4f8f200-4048-11ea-9972-a254b6707734.png" class="project-image">-->
-      <p class="project-title">
-        <span class="code">&lt;</span>
+
         10.a Freecodecamp Javascript Algorithms and Data Structures Certification
+
         <span class="code">&#47;&gt;</span>
+		</a>
       </p>
-    </a>
-   
-    <a href="https://www.freecodecamp.org/kkoro1" target="blank" class="project project-tile" style="background-image:url(https://user-images.githubusercontent.com/36044703/73140663-7cdefc00-4049-11ea-8a87-08ec77d5baaf.png)">
-      <!--<img alt="project code example" src="https://user-images.githubusercontent.com/36044703/73140663-7cdefc00-4049-11ea-8a87-08ec77d5baaf.png"class="project-image">-->
-      <p class="project-title">
+	
+	</div>
+	
+
+<div class="project project-tile"  style="text-align:left; background-image:url(https://user-images.githubusercontent.com/36044703/73140663-7cdefc00-4049-11ea-8a87-08ec77d5baaf.png);" data-target="12">
+		 <p><a href="https://www.freecodecamp.org/kkoro1" target="blank" >
+
         <span class="code">&lt;</span>
+
         10.b Freecodecamp Javascript Algorithms and Data Structures Certification Project Example
+
         <span class="code">&#47;&gt;</span>
+		</a>
       </p>
-    </a>
-  </div>
+	
+	</div>
+	
+	
+  
+
+
+<!--Note section-->
+
+  <div class="project-expandable" data-target="1">1</div>
+  <div class="project-expandable" data-target="2">2</div>
+  <div class="project-expandable" data-target="3">3</div>
+  <div class="project-expandable" data-target="4">4</div>
+  <div class="project-expandable" data-target="5">5</div>
+  <div class="project-expandable" data-target="6">6</div>
+  <div class="project-expandable" data-target="7">7</div>
+  <div class="project-expandable" data-target="8">8</div>
+  <div class="project-expandable" data-target="9">9a</div>
+  <div class="project-expandable" data-target="10">9b</div>
+  <div class="project-expandable" data-target="11">10a</div>
+  <div class="project-expandable" data-target="12">10b</div>
+
+</div>
+
+
+
 </section>
+
 
 <section id="contact" class="contact-section">
+
+
   <div class="contact-section-header">
+
+
     <h2>Let's see more of my work</h2>
+
+
   </div>
+
+
   <div class="contact-links">
+
+
     <a id="profile-link" href="https://www.freecodecamp.org/kkoro1" target="_blank" class="btn contact-details">
+
+
       <i class="fab fa-fcc"></i>FreeCodeCamp</a>
+
+
     <a id="profile-link" href="https://github.com/Kkoro1" target="_blank" class="btn contact-details"><i class="fab fa-github"></i> GitHub
+
+
     </a>
+
+
   </div>
+
+
+
 </section>
 
+
+
+
+
 <footer>
-  <p>**The links to the fcc certification and example project go to the profile as it's not something accesible by people not signed in to my account</p>
+
+
+  <p>**The links to the fcc certification and example project go to the profile as it's not something accessible by people not signed in to my account</p>
+
+
   <p> &copy; Created by Ksenia Korolkevitch</p>
+
+
 </footer>
-<body>
+
+<div id="back" class="back" onclick="hidePopup();"></div>
+<script language="javascript">
+/*
+//click event to expand the expandable
+$('.project-tile').on('click', function(){
+    //hide previous opened expendables
+    $('.project-tile').removeClass('active');
+    $('.project-expandable').slideUp();
+    //get target data
+    var target = $(this).attr('data-target'); 
+    //toggle the container
+    var $triggered = $(this);
+    var $triggeredElement = $('.project-expandable[data-target='+ target +']');
+    positionExpandableElement($triggered, $triggeredElement);
+    $triggered.addClass('active');
+    $triggeredElement.slideDown();
+});
+
+//we need to check on resize how many items are pe row, if it changes, trigger a click on a already opened item, so it positions itself at the right position
+var containerWidth = $('.projects-grid').outerWidth();
+var itemWidth = $('.project-tile').outerWidth();
+var itemsPerRow = Math.floor(containerWidth / itemWidth);
+
+$(window).resize(function(){
+    containerWidth = $('.projects-grid').outerWidth();
+    itemWidth = $('.project-tile').outerWidth();
+    var newItemsPerRow = Math.floor(containerWidth / itemWidth);
+	if(itemsPerRow != newItemsPerRow){
+  	    itemsPerRow = newItemsPerRow;
+        $('.project-tile.active').trigger('click');
+    }
+})
+
+function positionExpandableElement(triggered, element) {
+	//first determine at which position your expandable element has to be, should be the first element of next row from triggered element.
+  //For this we need to know how many elements currently are in a row. Then you can position it after that element
+  
+  //get the item number where you have to insert after
+  var allFlexItems = $('.project-tile');
+  var itemsData = []; //we need an array of data-targets to get the number of element from the array index
+  $.each(allFlexItems, function(key, el){
+  	itemsData.push($(el).attr('data-target'));
+  });
+  var elNumber = $.inArray($(triggered).attr('data-target'), itemsData)
+  //elNumber now tells us the position of the element that got triggered
+  //now we can calculate where we have to insert our expandable
+  var rowNumber = Math.floor(elNumber / itemsPerRow);
+  var insertAfter = (itemsPerRow * rowNumber) + itemsPerRow - 1; //we add itemsPerRow because we always need to skip the first row, -1 because array starts at 0
+  //now that we now the last items number (even in responsive), we can insert our expandable on click after that element
+  $(element).insertAfter($('.project-tile')[insertAfter]);
+
+}
+*/
+</script>
+
+</body>
+
+
 </html>
