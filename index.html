@@ -156,7 +156,10 @@ function displayFloatingDiv(divId, title, width, height, left, top)
 
         <span class="code">&#47;&gt;</span>
 		</a>
-      </p>	
+			 
+      </p>
+		<br>
+		<a href="javascript:displayFloatingDiv('project1', '1. AP Computer Science Principles', window.innerWidth/2, window.innerHeight/2, window.innerWidth/4, window.innerHeight/4);">Summary</a>
 	</div>
 
 
@@ -177,19 +180,9 @@ function displayFloatingDiv(divId, title, width, height, left, top)
 		  </p>
 
 		</a>		
-		
-		<a href="javascript:displayFloatingDiv('project2', '2. Intro to JS: Drawing and Animation', window.innerWidth/2, window.innerHeight/2, window.innerWidth/4, window.innerHeight/4);">Details...</a>
+		<br>
+		<a href="javascript:displayFloatingDiv('project2', '2. Intro to JS: Drawing and Animation', window.innerWidth/2, window.innerHeight/2, window.innerWidth/4, window.innerHeight/4);">Summary</a>
 	</div>
-
-	  <div class="hidden" id="project2"><div class="details">Learned how to use Arrays in JavaScript...
-		  To make an animation of rain, it's best if we use arrays to keep track of the drops and their different properties. Start with this simple code and build on it to make a cool rain animation. Here are some ideas for what you could do:
-		  Add more drops to the arrays.
-		  Make it so that the drops start back at the top once they've reached the bottom, using a conditional.
-		  Make an array of colors, so that every drop is a different color.
-		  Make other things rain, like snowflakes (using more shape commands) or avatars (using the image commands).
-		  Make it so that when the user clicks, a new drop is added to the array.
-		  Initialize the arrays using a for loop and random() function, at the beginning of the program.
-	  </div></div>
 
 	<div class="project project-tile"  data-target="3">  
 
@@ -206,18 +199,9 @@ function displayFloatingDiv(divId, title, width, height, left, top)
 		  </p>
 
 		</a>
-		<a href="javascript:displayFloatingDiv('project3', '3. Intro to SQL: Querying and Managing Data', window.innerWidth/2, window.innerHeight/2, window.innerWidth/4, window.innerHeight/4);">Details...</a>
+		<br>
+		<a href="javascript:displayFloatingDiv('project3', '3. Intro to SQL: Querying and Managing Data', window.innerWidth/2, window.innerHeight/2, window.innerWidth/4, window.innerHeight/4);">Summary</a>
 	</div>
-	  <div class="hidden" id="project3"><div class="details">
-	  In this project, you’re going to make your own table with some small set of “famous people”, then make more tables about things they do and join those to create nice human readable lists.
-
-	  For example, here are types of famous people and the questions your data could answer:
-
-	  Movie stars: What movies are they in? Are they married to each other?
-	  Singers: What songs did they write? Where are they from?
-	  Authors: What books did they write?
-	  Fictional characters: How are they related to other characters? What books do they show up in?
-	  </div></div>
 
 	 <div class="project project-tile"  data-target="4">  
 
@@ -447,59 +431,27 @@ function displayFloatingDiv(divId, title, width, height, left, top)
 </footer>
 
 <div id="back" class="back" onclick="hidePopup();"></div>
-<script language="javascript">
-/*
-//click event to expand the expandable
-$('.project-tile').on('click', function(){
-    //hide previous opened expendables
-    $('.project-tile').removeClass('active');
-    $('.project-expandable').slideUp();
-    //get target data
-    var target = $(this).attr('data-target'); 
-    //toggle the container
-    var $triggered = $(this);
-    var $triggeredElement = $('.project-expandable[data-target='+ target +']');
-    positionExpandableElement($triggered, $triggeredElement);
-    $triggered.addClass('active');
-    $triggeredElement.slideDown();
-});
+	<div class="hidden" id="project1"><div class="details">summary....
+	  </div></div>
+	<div class="hidden" id="project2"><div class="details">Learned how to use Arrays in JavaScript...
+		  To make an animation of rain, it's best if we use arrays to keep track of the drops and their different properties. Start with this simple code and build on it to make a cool rain animation. Here are some ideas for what you could do:
+		  Add more drops to the arrays.
+		  Make it so that the drops start back at the top once they've reached the bottom, using a conditional.
+		  Make an array of colors, so that every drop is a different color.
+		  Make other things rain, like snowflakes (using more shape commands) or avatars (using the image commands).
+		  Make it so that when the user clicks, a new drop is added to the array.
+		  Initialize the arrays using a for loop and random() function, at the beginning of the program.
+	  </div></div>
+	<div class="hidden" id="project3"><div class="details">
+	  In this project, you’re going to make your own table with some small set of “famous people”, then make more tables about things they do and join those to create nice human readable lists.
 
-//we need to check on resize how many items are pe row, if it changes, trigger a click on a already opened item, so it positions itself at the right position
-var containerWidth = $('.projects-grid').outerWidth();
-var itemWidth = $('.project-tile').outerWidth();
-var itemsPerRow = Math.floor(containerWidth / itemWidth);
+	  For example, here are types of famous people and the questions your data could answer:
 
-$(window).resize(function(){
-    containerWidth = $('.projects-grid').outerWidth();
-    itemWidth = $('.project-tile').outerWidth();
-    var newItemsPerRow = Math.floor(containerWidth / itemWidth);
-	if(itemsPerRow != newItemsPerRow){
-  	    itemsPerRow = newItemsPerRow;
-        $('.project-tile.active').trigger('click');
-    }
-})
-
-function positionExpandableElement(triggered, element) {
-	//first determine at which position your expandable element has to be, should be the first element of next row from triggered element.
-  //For this we need to know how many elements currently are in a row. Then you can position it after that element
-  
-  //get the item number where you have to insert after
-  var allFlexItems = $('.project-tile');
-  var itemsData = []; //we need an array of data-targets to get the number of element from the array index
-  $.each(allFlexItems, function(key, el){
-  	itemsData.push($(el).attr('data-target'));
-  });
-  var elNumber = $.inArray($(triggered).attr('data-target'), itemsData)
-  //elNumber now tells us the position of the element that got triggered
-  //now we can calculate where we have to insert our expandable
-  var rowNumber = Math.floor(elNumber / itemsPerRow);
-  var insertAfter = (itemsPerRow * rowNumber) + itemsPerRow - 1; //we add itemsPerRow because we always need to skip the first row, -1 because array starts at 0
-  //now that we now the last items number (even in responsive), we can insert our expandable on click after that element
-  $(element).insertAfter($('.project-tile')[insertAfter]);
-
-}
-*/
-</script>
+	  Movie stars: What movies are they in? Are they married to each other?
+	  Singers: What songs did they write? Where are they from?
+	  Authors: What books did they write?
+	  Fictional characters: How are they related to other characters? What books do they show up in?
+	  </div></div>
 
 </body>
 
