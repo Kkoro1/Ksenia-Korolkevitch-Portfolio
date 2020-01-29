@@ -356,5 +356,6 @@ div.details
     text-align:left;
     overflow:auto;
     height:90%;
+    font-weight: normal;
 
 }
