@@ -1,459 +1,345 @@
-<!doctype html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 
+    <title>Ksenia's Portfolio ICS4U</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<html><head>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script language="javascript">
+      var originalDivHTML = "";
+      var selectedDiv = "";
 
-
-<meta charset="utf-8">
-
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-
-<title>Ksenia's Portfolio ICS4U</title>
-
-
-<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-
-<link rel = "stylesheet" type = "text/css" href = "style.css" />
-	<script  language="javascript">
-var originalDivHTML = "";
-var selectedDiv = "";
-
-function hidePopup(){
-    document.getElementById('back').style.visibility = "hidden";
-    originalDivHTML = "";
-	if ( selectedDiv != ""){
-		hiddenFloatingDiv(selectedDiv);
-		selectedDiv = "";
-	}
-}
-
-function hiddenFloatingDiv(divId){
-    document.getElementById(divId).style.visibility = "hidden";
-    document.getElementById(divId).className = "hidden";
-    document.getElementById('back').style.visibility = "hidden";
-    originalDivHTML = "";
-}
-function displayFloatingDiv(divId, title, width, height, left, top)
-{
-	selectedDiv = divId;
-    var doc = document.documentElement;
-    var leftAdj = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
-    var topAdj = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
-
-    document.getElementById('back').style.width = document.body.clientWidth + 'px';
-    document.getElementById('back').style.height = document.body.clientHeight + 'px';
-    document.getElementById('back').style.left = '0px';
-    document.getElementById('back').style.top = '0px';
-    document.getElementById('back').style.visibility = 'visible';
-
-   	var parent = document.getElementById(divId);
-
-    parent.style.width = width + 'px';
-    parent.style.height = height + 'px';
-    parent.style.left = (left + leftAdj) + 'px';
-    parent.style.top = (top + topAdj) + 'px';
-
-    var addHeader;
-
-    if (originalDivHTML == ""){
-    	var elms = parent.getElementsByTagName("div");
- 		for (var i = 0; i < elms.length; i++) {
-        	originalDivHTML += elms[i].outerHTML;
+      function hidePopup() {
+        document.getElementById("back").style.visibility = "hidden";
+        originalDivHTML = "";
+        if (selectedDiv != "") {
+          hiddenFloatingDiv(selectedDiv);
+          selectedDiv = "";
         }
-	}
-    addHeader = '<table class="floatingHeader">' +
-                '<tr><td ondblclick="void(0);" onmouseover="over=true;" onmouseout="over=false;" style="cursor:move;height:18px">' + title + '</td>' +
-                '<td style="width:18px" align="right"><a style="text-decoration:none;color:#ffffff" href="javascript:hiddenFloatingDiv(\'' + divId + '\');">X</a></td></tr></table>';
-    document.getElementById(divId).innerHTML = addHeader + originalDivHTML;
-    document.getElementById(divId).style.visibility = "visible";
-    document.getElementById(divId).className = "popup";
-}
-</script>
+      }
 
+      function hiddenFloatingDiv(divId) {
+        document.getElementById(divId).style.visibility = "hidden";
+        document.getElementById(divId).className = "hidden";
+        document.getElementById("back").style.visibility = "hidden";
+        originalDivHTML = "";
+      }
+      function displayFloatingDiv(divId, title, width, height, left, top) {
+        selectedDiv = divId;
+        var doc = document.documentElement;
+        var leftAdj =
+          (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
+        var topAdj =
+          (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
 
-</head>
+        document.getElementById("back").style.width =
+          document.body.clientWidth + "px";
+        document.getElementById("back").style.height =
+          document.body.clientHeight + "px";
+        document.getElementById("back").style.left = "0px";
+        document.getElementById("back").style.top = "0px";
+        document.getElementById("back").style.visibility = "visible";
 
+        var parent = document.getElementById(divId);
 
-<body>
+        parent.style.width = width + "px";
+        parent.style.height = height + "px";
+        parent.style.left = left + leftAdj + "px";
+        parent.style.top = top + topAdj + "px";
 
+        var addHeader;
 
-<nav id="navbar" class="nav">
+        if (originalDivHTML == "") {
+          var elms = parent.getElementsByTagName("div");
+          for (var i = 0; i < elms.length; i++) {
+            originalDivHTML += elms[i].outerHTML;
+          }
+        }
+        addHeader =
+          '<table class="floatingHeader">' +
+          '<tr><td ondblclick="void(0);" onmouseover="over=true;" onmouseout="over=false;"style="cursor:move;height:18px">' + title + "</td>" +
+ '<td style="width:18px" align="right"><a style="text-decoration:none;color:#ffffff" href="javascript:hiddenFloatingDiv(\'' + divId +
+ "');\">X</a></td></tr></table>";
+        document.getElementById(divId).innerHTML = addHeader + originalDivHTML;
+        document.getElementById(divId).style.visibility = "visible";
+        document.getElementById(divId).className = "popup";
+      }
+    </script>
+  </head>
 
+  <body>
+    <nav id="navbar" class="nav">
+      <ul class="nav-list">
+        <li>
+          <a href="#welcome-section">About</a>
+        </li>
 
-  <ul class="nav-list">
+        <li>
+          <a href="#projects">Work</a>
+        </li>
 
+        <li>
+          <a href="#contact">Contact</a>
+        </li>
+      </ul>
+    </nav>
 
-    <li>
+    <section id="welcome-section" class="welcome-section">
+      <h1>Ksenia's Portfolio</h1>
 
+      <p>ICS4U</p>
+    </section>
 
-      <a href="#welcome-section">About</a>
+    <section id="projects" class="projects-section">
+      <h2 class="projects-section-header">My projects and works from the semester</h2>
 
+      <div class="projects-grid">
+        <div class="project project-tile"><div class="container" style="width:100%;height:100%;background-size: cover; background-image:url(https://user-images.githubusercontent.com/36044703/73139056-ba3a8e00-4037-11ea-8771-2243c13dd360.png);"></div>
+          <p class='title'>
+            <a href="https://www.khanacademy.org/computing/ap-computer-science-principles" target="blank">
+              <span class="code">&lt;</span>
+              1. AP Computer Science Principles
+              <span class="code">&#47;&gt;</span>
+            </a>
+            </p><p>
+            <a href="javascript:displayFloatingDiv('project1', '1. AP Computer Science Principles', window.innerWidth/2, window.innerHeight/2, window.innerWidth/4, window.innerHeight/4);">Summary</a>
+          </p>
+        </div>
 
-    </li>
+        <div class="project project-tile">
+          <iframe src="https://kkoro1.github.io/Ksenia-Korolkevitch-Portfolio/make-it-rain.html" seamless sandbox="allow-scripts allow-same-origin allow-presentation"></iframe>
+<p class='title'>
+          <a href="https://www.khanacademy.org/computer-programming/spin-off-of-project-make-it-rain/5545883173158912" target="blank">
+            
+              <span class="code">&lt;</span>
+              2. Intro to JS: Drawing and Animation
+              <span class="code">&#47;&gt;</span>
+            
+          </a>
+          </p><p>
+          <a href="javascript:displayFloatingDiv('project2', '2. Intro to JS: Drawing and Animation', window.innerWidth/2, window.innerHeight/2, window.innerWidth/4, window.innerHeight/4);">Summary</a></p>
+        </div>
 
+        <div class="project project-tile">
+          <div class='container'>
+            <script src="https://www.khanacademy.org/computer-programming/spin-off-of-project-famous-people/5317489042358272/embed.js?editor=yes&buttons=no&author=no&embed=yes"></script>
+          </div>
+<p class='title'>
+          <a href="https://www.khanacademy.org/computer-programming/spin-off-of-project-famous-people/5317489042358272" target="blank">
+            
+              <span class="code">&lt;</span>
+              3. Intro to SQL: Querying and Managing Data
+              <span class="code">&#47;&gt;</span>
+</a>
+            </p>
+          
+          <p>
+          <a href="javascript:displayFloatingDiv('project3', '3. Intro to SQL: Querying and Managing Data', window.innerWidth/2, window.innerHeight/2, window.innerWidth/4, window.innerHeight/4);" >Summary</a></p>
+        </div>
 
-    <li>
+        <div class="project project-tile">
+          <div class='container'>
+            <script src="https://www.khanacademy.org/computer-programming/spin-off-of-project-memory/5854302012211200/embed.js?editor=no&buttons=no&author=no&embed=yes"></script>
+          </div>
+<p class='title'>
+          <a href="https://www.khanacademy.org/computer-programming/spin-off-of-project-memory/5854302012211200" target="blank">
+                          <span class="code">&lt;</span>
+              4. Advanced JS: Games & Visualizations
+              <span class="code">&#47;&gt;</span>
+            </p>
+          </a>
+          <p>
+            <a href="javascript:displayFloatingDiv('project4', '4. Advanced JS: Games & Visualizations', window.innerWidth/2, window.innerHeight/2, window.innerWidth/4, window.innerHeight/4);">Summary</a></p>
+        </div>
 
+        <div class="project project-tile">
+<div class='container'>
+          <iframe src="https://kkoro1.github.io/Ksenia-Korolkevitch-Portfolio/paint-splatter.html" seamless sandbox="allow-scripts allow-same-origin allow-presentation"></iframe></div>
+<p class='title'>
+          <a href="https://www.khanacademy.org/computer-programming/spin-off-of-project-paint-splatter/6742430301257728" target="blank">
+            
+              <span class="code">&lt;</span>
+              5. Advanced JS: Natural Simulations
+              <span class="code">&#47;&gt;</span>
+            
+          </a>
+          </p>
+<p><a href="javascript:displayFloatingDiv('project5', '5. Advanced JS: Natural Simulations', window.innerWidth/2, window.innerHeight/2, window.innerWidth/4, window.innerHeight/4);">Summary</a></p>
+        </div>
 
-      <a href="#projects">Work</a>
+        <div class="project project-tile">
+<div class='container'>
+          <iframe src="https://kkoro1.github.io/Ksenia-Korolkevitch-Portfolio/recipebook.html" seamless sandbox="allow-scripts allow-same-origin allow-presentation"></iframe></div>
+<p class='title'>
+        <a href="https://kkoro1.github.io/Ksenia-Korolkevitch-Portfolio/recipebook.html" target="blank">
+         
+              <span class="code">&lt;</span>
+              6. Intro to HTML/CSS: Making Webpages
+              <span class="code">&#47;&gt;</span>
+          </a></p>
+            <p>
+            <a href="javascript:displayFloatingDiv('project6', '6. Intro to HTML/CSS: Making Webpages', window.innerWidth/2, window.innerHeight/2, window.innerWidth/4, window.innerHeight/4);">Summary</a></p>
 
+        </div>
 
-    </li>
+        <div class="project project-tile" data-target="7">
+          <div class='container'>
+            <iframe src="https://kkoro1.github.io/Ksenia-Korolkevitch-Portfolio/word-game.html" seamless sandbox="allow-scripts allow-same-origin allow-presentation"></iframe>
+          </div>
+<p class='title'>
+          <a href="https://www.khanacademy.org/computer-programming/spin-off-of-project-word-game/5673184201244672" target="blank">
+            
+              <span class="code">&lt;</span>
+              7. HTML/JS: Making Webpages Interactive With jQuery
+              <span class="code">&#47;&gt;</span>
+            
+          </a>
+          </p><p>
+            <a href="javascript:displayFloatingDiv('project7', '7. HTML/JS: Making Webpages Interactive With jQuery', window.innerWidth/2, window.innerHeight/2, window.innerWidth/4, window.innerHeight/4);">Summary</a></p>
+        </div>
 
+        <div class="project project-tile">
+<div class='container'>
+  <iframe src="https://kkoro1.github.io/Ksenia-Korolkevitch-Portfolio/recursive-art.html" seamless sandbox="allow-scripts allow-same-origin allow-presentation"></iframe>
+          </div>
+          <p class='title'>
+            <a href="https://www.khanacademy.org/computer-science/spin-off-of-project-recursive-art/4819623306035200" target="blank">
+              <span class="code">&lt;</span>
+              8. Algorithms: Recursive Art
+              <span class="code">&#47;&gt;</span>
+            </a>
+            </p><p>
+            <a href="javascript:displayFloatingDiv('project8', '8. Algorithms: Recursive Art', window.innerWidth/2, window.innerHeight/2, window.innerWidth/4, window.innerHeight/4);">Summary</a>
+          </p>
+        </div>
 
-    <li>
+        <div class="project project-tile" data-target="9">
+          <iframe src="https://editor.p5js.org/Kkoro1/sketches/N5QZlJQSq/index.html" seamless></iframe>
+<p class='title'>          
+<a href="https://editor.p5js.org/Kkoro1/sketches/N5QZlJQSq" target="blank">
+            
+              <span class="code">&lt;</span>
+              9.a Coding Challenge: Cardioid Visualization
+              <span class="code">&#47;&gt;</span>
+            </a>
+          </p>
+          <p>
+            <a href="javascript:displayFloatingDiv('project9', '9.a Coding Challenge: Cardioid Visualization', window.innerWidth/2, window.innerHeight/2, window.innerWidth/4, window.innerHeight/4);">Summary</a></p>
+        </div>
 
+        <div class="project project-tile">
+          <iframe src="https://editor.p5js.org/Kkoro1/sketches/N1igLkEdv/index.html" seamless sandbox="allow-scripts allow-same-origin allow-presentation"></iframe>
+<p class='title'>  
+          <a href="https://editor.p5js.org/Kkoro1/sketches/N1igLkEdv" target="blank">
+            
+              <span class="code">&lt;</span>
+              9.b Coding Challenge: Math Roses
+              <span class="code">&#47;&gt;</span>
+            
+          </a>
+          </p><p>
+            <a href="javascript:displayFloatingDiv('project9', '9.b Coding Challenge: Math Roses', window.innerWidth/2, window.innerHeight/2, window.innerWidth/4, window.innerHeight/4);">Summary</a></p>
+        </div>
 
-      <a href="#contact">Contact</a>
+        <div class="project project-tile"><div class='container' style="text-align:left; background-image:url(https://user-images.githubusercontent.com/36044703/73140622-f4f8f200-4048-11ea-9972-a254b6707734.png);" data-target="11"></div>
+          <p class='title'>
+            <a href="https://www.freecodecamp.org/kkoro1" target="blank">
+              <span class="code">&lt;</span>
+              10.a Freecodecamp: Javascript Algorithms and Data Structures
+              Certification
+              <span class="code">&#47;&gt;</span>
+            </a>
+            </p><p>
+            <a href="javascript:displayFloatingDiv('project10', '10.a Freecodecamp: Javascript Algorithms and Data Structures', window.innerWidth/2, window.innerHeight/2, window.innerWidth/4, window.innerHeight/4);">Summary</a>
+          </p>
+        </div>
 
+        <div class="project project-tile"><div class='container' style="text-align:left; background-image:url(https://user-images.githubusercontent.com/36044703/73140663-7cdefc00-4049-11ea-8a87-08ec77d5baaf.png);"></div>
+          <p class='title'>
+            <a href="https://www.freecodecamp.org/kkoro1" target="blank">
+              <span class="code">&lt;</span>
+              10.b Freecodecamp: Javascript Algorithms and Data Structures
+              Certification Project Example
+              <span class="code">&#47;&gt;</span>
+            </a>
+            </p><p>
+            <a href="javascript:displayFloatingDiv('project10', '10.b Freecodecamp: Javascript Algorithms and Data Structures', window.innerWidth/2, window.innerHeight/2, window.innerWidth/4, window.innerHeight/4);">Summary</a>
+          </p>
+        </div>
+    </section>
 
-    </li>
-
-
-  </ul>
-
-
-</nav>
-
-
-
-
-
-<section id="welcome-section" class="welcome-section">
-
-
-  <h1>Ksenia's Portfolio</h1>
-
-
-  <p>ICS4U</p>
-
-
-</section>
-
-
-
-
-
-<section id="projects" class="projects-section">
-
-
-  <h2 class="projects-section-header">My projects and works from the semester</h2>
-
-  <div class="projects-grid"> 
-	
-	<div class="project project-tile"  style="text-align:left; background-image:url(https://user-images.githubusercontent.com/36044703/73139056-ba3a8e00-4037-11ea-8771-2243c13dd360.png);" data-target="1">
-		 <p><a href="https://www.khanacademy.org/computing/ap-computer-science-principles" target="blank" >
-
-        <span class="code">&lt;</span>
-		1. AP Computer Science Principles
-
-        <span class="code">&#47;&gt;</span>
-		</a>
-		<br>
-		<a href="javascript:displayFloatingDiv('project1', '1. AP Computer Science Principles', window.innerWidth/2, window.innerHeight/2, window.innerWidth/4, window.innerHeight/4);">Summary</a>	 
+    <footer>
+      <p>
+        **The links to the fcc certification and example project go to the
+        profile as it's not something accessible by people not signed into my
+        account**
       </p>
-		
-	</div>
 
-
-	<div class="project project-tile" data-target="2">  
-
-		<div><script src="https://www.khanacademy.org/computer-programming/spin-off-of-project-make-it-rain/5545883173158912/embed.js?editor=no&buttons=no&author=no&embed=yes"></script></div>
-
-		<a href="https://www.khanacademy.org/computer-programming/spin-off-of-project-make-it-rain/5545883173158912" target="blank"> 
-
-		  <p>
-
-			<span class="code">&lt;</span>
-
-			2. Intro to JS: Drawing and Animation
-
-			<span class="code">&#47;&gt;</span>
-
-		  </p>
-
-		</a>		
-		<br>
-		<a href="javascript:displayFloatingDiv('project2', '2. Intro to JS: Drawing and Animation', window.innerWidth/2, window.innerHeight/2, window.innerWidth/4, window.innerHeight/4);">Summary</a>
-	</div>
-
-	<div class="project project-tile"  data-target="3">  
-
-		<div><script src="https://www.khanacademy.org/computer-programming/spin-off-of-project-famous-people/5317489042358272/embed.js?editor=yes&buttons=no&author=no&embed=yes"></script></div> 
-
-		<a href="https://www.khanacademy.org/computer-programming/spin-off-of-project-famous-people/5317489042358272" target="blank"> 
-		  <p>
-
-			<span class="code">&lt;</span>
-
-				3. Intro to SQL: Querying and Managing Data
-			<span class="code">&#47;&gt;</span>
-
-		  </p>
-
-		</a>
-		<br>
-		<a href="javascript:displayFloatingDiv('project3', '3. Intro to SQL: Querying and Managing Data', window.innerWidth/2, window.innerHeight/2, window.innerWidth/4, window.innerHeight/4);">Summary</a>
-	</div>
-
-	 <div class="project project-tile"  data-target="4">  
-
-		<div><script src="https://www.khanacademy.org/computer-programming/spin-off-of-project-memory/5854302012211200/embed.js?editor=no&buttons=no&author=no&embed=yes"></script></div> 
-
-		<a href="https://www.khanacademy.org/computer-programming/spin-off-of-project-memory/5854302012211200" target="blank"> 
-
-		  <p>
-
-			<span class="code">&lt;</span>
-
-			4. Advanced JS: Games & Visualizations
-
-			<span class="code">&#47;&gt;</span>
-
-		  </p>
-
-		</a>
-
-	</div>  
-
-
-	 <div class="project project-tile"  data-target="5">  
-
-		<div><script src="https://www.khanacademy.org/computer-programming/spin-off-of-project-paint-splatter/6742430301257728/embed.js?editor=no&buttons=no&author=no&embed=yes"></script></div> 
-
-		<a href="https://www.khanacademy.org/computer-programming/spin-off-of-project-paint-splatter/6742430301257728" target="blank"> 
-
-		<p>
-
-			<span class="code">&lt;</span>
-
-			5. Advanced JS: Natural Simulations
-
-			<span class="code">&#47;&gt;</span>
-
-		  </p>
-
-		</a>
-
-	</div> 
-
-	  
-
-<!--<iframe src="https://www.khanacademy.org/computer-science/spin-off-of-project-recursive-art/4819623306035200></iframe> -->
-		
-<div class="project project-tile"  style="text-align:left; background-image:url(https://user-images.githubusercontent.com/36044703/73140378-2d4b0100-4046-11ea-90df-e274a91c76e9.png);" data-target="6">
-		 <p><a href="https://www.khanacademy.org/computing/computer-programming/html-css-js" target="blank" >
-
-        <span class="code">&lt;</span>
-
-        6. HTML/JS: Making webpages interactive
-
-        <span class="code">&#47;&gt;</span>
-		</a>
-      </p>
-	
-	</div>
-
-
-	 <div class="project project-tile"  data-target="7">  
-
-		<div><script src="https://www.khanacademy.org/computer-programming/spin-off-of-project-word-game/5673184201244672/embed.js?editor=yes&buttons=no&author=no&embed=yes"></script></div> 
-
-		<a href="https://www.khanacademy.org/computer-programming/spin-off-of-project-word-game/5673184201244672" target="blank"> 
-
-		  <p>
-
-			<span class="code">&lt;</span>
-
-			7. HTML/JS: Making webpages interactive with jQuery
-
-			<span class="code">&#47;&gt;</span>
-
-		  </p>
-
-		</a>
-
-	</div>  
-
-
-<div class="project project-tile"  style="text-align:left; background-image:url(https://user-images.githubusercontent.com/36044703/73140471-3c7e7e80-4047-11ea-8bde-0363b051d4fc.png);" data-target="8">
-		 <p><a href="https://www.khanacademy.org/computer-science/spin-off-of-project-recursive-art/4819623306035200" target="blank" >
-
-        <span class="code">&lt;</span>
-
-        8. Algorithms: Recursive Art
-
-        <span class="code">&#47;&gt;</span>
-		</a>
-      </p>
-	
-	</div>
-  
-
-	<div class="project project-tile" data-target="9"> 
-		<iframe src="https://editor.p5js.org/Kkoro1/sketches/N5QZlJQSq/index.html"  seamless></iframe> 
-		<a href="https://editor.p5js.org/Kkoro1/sketches/N5QZlJQSq" target="blank"> 
-		  <p>
-			<span class="code">&lt;</span>
-			9.a Coding Challenge: Cardioid Visualization
-			<span class="code">&#47;&gt;</span>
-		  </p>
-		</a>
-	</div>   
-
-
-	<div class="project project-tile" data-target="10"> 
-
-		<iframe src="https://editor.p5js.org/Kkoro1/sketches/N1igLkEdv/index.html"  seamless sandbox="allow-scripts allow-same-origin allow-presentation"></iframe>
-
-		<a href="https://editor.p5js.org/Kkoro1/sketches/N1igLkEdv" target="blank"> 
-
-		  <p>
-
-			<span class="code">&lt;</span>
-
-			9.b Coding Challenge: Math Roses
-
-			<span class="code">&#47;&gt;</span>
-
-		  </p>
-
-		</a>
-
-	</div>  
-
-	<div class="project project-tile"  style="text-align:left; background-image:url(https://user-images.githubusercontent.com/36044703/73140622-f4f8f200-4048-11ea-9972-a254b6707734.png);" data-target="11">
-		 <p><a href="https://www.freecodecamp.org/kkoro1" target="blank" >
-
-        <span class="code">&lt;</span>
-
-        10.a Freecodecamp Javascript Algorithms and Data Structures Certification
-
-        <span class="code">&#47;&gt;</span>
-		</a>
-      </p>
-	
-	</div>
-	
-
-<div class="project project-tile"  style="text-align:left; background-image:url(https://user-images.githubusercontent.com/36044703/73140663-7cdefc00-4049-11ea-8a87-08ec77d5baaf.png);" data-target="12">
-		 <p><a href="https://www.freecodecamp.org/kkoro1" target="blank" >
-
-        <span class="code">&lt;</span>
-
-        10.b Freecodecamp Javascript Algorithms and Data Structures Certification Project Example
-
-        <span class="code">&#47;&gt;</span>
-		</a>
-      </p>
-	
-	</div>
-	
-	
-  
-
-
-<!--Note section-->
-
-  <div class="project-expandable" data-target="1">1</div>
-  <div class="project-expandable" data-target="2">2</div>
-  <div class="project-expandable" data-target="3">3</div>
-  <div class="project-expandable" data-target="4">4</div>
-  <div class="project-expandable" data-target="5">5</div>
-  <div class="project-expandable" data-target="6">6</div>
-  <div class="project-expandable" data-target="7">7</div>
-  <div class="project-expandable" data-target="8">8</div>
-  <div class="project-expandable" data-target="9">9a</div>
-  <div class="project-expandable" data-target="10">9b</div>
-  <div class="project-expandable" data-target="11">10a</div>
-  <div class="project-expandable" data-target="12">10b</div>
-
-</div>
-
-
-
-</section>
-
-
-<section id="contact" class="contact-section">
-
-
-  <div class="contact-section-header">
-
-
-    <h2>Let's see more of my work</h2>
-
-
-  </div>
-
-
-  <div class="contact-links">
-
-
-    <a id="profile-link" href="https://www.freecodecamp.org/kkoro1" target="_blank" class="btn contact-details">
-
-
-      <i class="fab fa-fcc"></i>FreeCodeCamp</a>
-
-
-    <a id="profile-link" href="https://github.com/Kkoro1" target="_blank" class="btn contact-details"><i class="fab fa-github"></i> GitHub
-
-
-    </a>
-
-
-  </div>
-
-
-
-</section>
-
-
-
-
-
-<footer>
-
-
-  <p>**The links to the fcc certification and example project go to the profile as it's not something accessible by people not signed in to my account</p>
-
-
-  <p> &copy; Created by Ksenia Korolkevitch</p>
-
-
-</footer>
-
-<div id="back" class="back" onclick="hidePopup();"></div>
-	<div class="hidden" id="project1"><div class="details">summary....
-	  </div></div>
-	<div class="hidden" id="project2"><div class="details">Learned how to use Arrays in JavaScript...
-		  To make an animation of rain, it's best if we use arrays to keep track of the drops and their different properties. Start with this simple code and build on it to make a cool rain animation. Here are some ideas for what you could do:
-		  Add more drops to the arrays.
-		  Make it so that the drops start back at the top once they've reached the bottom, using a conditional.
-		  Make an array of colors, so that every drop is a different color.
-		  Make other things rain, like snowflakes (using more shape commands) or avatars (using the image commands).
-		  Make it so that when the user clicks, a new drop is added to the array.
-		  Initialize the arrays using a for loop and random() function, at the beginning of the program.
-	  </div></div>
-	<div class="hidden" id="project3"><div class="details">
-	  In this project, you’re going to make your own table with some small set of “famous people”, then make more tables about things they do and join those to create nice human readable lists.
-
-	  For example, here are types of famous people and the questions your data could answer:
-
-	  Movie stars: What movies are they in? Are they married to each other?
-	  Singers: What songs did they write? Where are they from?
-	  Authors: What books did they write?
-	  Fictional characters: How are they related to other characters? What books do they show up in?
-	  </div></div>
-
-</body>
-
-
+      <p>&copy; Created by Ksenia Korolkevitch</p>
+    </footer>
+
+    <div id="back" class="back" onclick="hidePopup();"></div>
+    <div class="hidden" id="project1">
+      <div class="details">This was the first module I completed this school year. It has very few practical applications, however, it gave real world examples and applications of computer science. Especially in our day to day lives. The module included sections on how computers and the internet work, giving clearer insight on the things most people have in their lives and won't always know how they work. This module has given me more patience with the internet because I have a better understanding of how it works. Evidently, I'll continue making use of the internet, computers and all the tools created by other developers that are available to students such as myself.</div>
+    </div>
+    
+    <div class="hidden" id="project2">
+      <div class="details">
+        This module gave me the basics with using JS to make very visual programs. It laid the groundwork for many future modules and projects to come. Here I learnt all about functions and the other methods of visualizing various programs. In terms of further learning, I'd say moving towards more complex animations and cleaner more efficient ways of coding (ie. object oriented design)
+      </div>
+    </div>
+    
+    <div class="hidden" id="project3">
+      <div class="details">
+        This was a module I had started back in grade 10 as well. A lot of these were either completed or started two years ago, I'm noticing. Anyway, this module taught me how use databases and do some pretty fun things with them. For the project shown, I had taken some of my personal favourite actors and put my favourite movie of their's and their net worth. Also their age. Those data points were outputed in two tables, one for some personal details and the other for net worth. I think, for the future, I could go into querying more complex data sets or organizing the data more cohesively. 
+      </div>
+    </div>
+    
+    <div class="hidden" id="project4">
+      <div class="details">
+        This module was given to me as a challenge way back when and I jump at the chance to further my understanding of JS. Here is where I learnt more about using mouse and keyboard controls to make a game where the player can interact and move a character around. When looking at how I could further my understanding of computer science, I'd say looking into making things react to their surroundings naturally and still trying to work on cleaner, more efficient code.
+      </div>
+    </div>
+    
+    <div class="hidden" id="project5">
+      <div class="details">
+        Here was where I got to achieve a goal of making things work on their own and not need to be control by a player or have set parameters. I didn't include it here, but the other projects in this module include making things move around based on their surroundings and not on set code saying they move from the right side of the canvas to the left. To continue on how this will help me learn as a student. The module actually gave more insight into some physics concepts I learnt last year and new ones that I might learn in the future. The module in conjunction with the projects will allow me to reflect back to them when I might be stuck on something in physics or even math.
+      </div>
+    </div>
+    
+    <div class="hidden" id="project6">
+      <div class="details">
+        This module goes back to grade 10, I had started with this module and went from there. This one was the one to really get me going with coding and computer sciences. I learned how to code basic HTML and CSS to make a simple webpage that looks ok. From there, working on making web pages that are interactive and are nicely organized would be the way to go.
+      </div>
+    </div>
+    
+    <div class="hidden" id="project7">
+      <div class="details">
+        And another one I started two years ago and finished this year. This one allowed me to learn how to simplify my code to allow for more complex events to happen in less work. Woo for efficient coding!! As the module helped me with simplifying code and making it more efficient, this will also help in the future by giving me more tools to have good coding practices.
+      </div>
+    </div>
+    
+    <div class="hidden" id="project8">
+      <div class="details">
+        In the algorithms module, I learnt how algorithms work, They are procedures used to either sort a set list of items, or to keep sorting. Algorithms are used in many places, ranging from math to english. As it's a procedure and those exist everywhere, the module allows to know how to properly contruct a affective procedure to follow when working on other projects.
+      </div>
+    </div>
+    
+    <div class="hidden" id="project9">
+      <div class="details">
+        Here was where I was fully emersed in object oriented design and working with someone else's code and working on it to make my own. Going through and adding the gradients also allowed me to improve on using outside resources instead of trying to do everything on my own. This concept of working on other people's work and using resources from outside is a benefical skill to have when working out in the world. So that is something that will help in the future.
+      </div>
+    </div>
+    
+    <div class="hidden" id="project10">
+      <div class="details">
+        Working through Freecodecamp gave me a more in depth look on different aspects of coding, here was working with Javascript and Algorithms. Going through the challenges got me to better understand the concepts. Progressing with learning, those concepts help with problem solving and how to logic through stuff. Computer Science helps with problem solving because programmers are presented with problems and they have to work through it and try different things to get a program to work or fix a bug.
+      </div>
+    </div>
+  </body>
 </html>
