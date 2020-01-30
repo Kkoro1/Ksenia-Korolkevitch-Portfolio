@@ -12,7 +12,7 @@ https://kkoro1.github.io/Ksenia-Korolkevitch-Portfolio/index.html
 
 5. Advanced JS: Natural Simulations
 
-6. HTML/JS: Making webpages interative
+6. Intro to HTML/CSS: Making Webpages
 
 7. HTML/JS: Making webpages interactive with jQuery
 
