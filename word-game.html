@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Project: Word game </title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+            form {
+                font-size: 1.5em;
+            }
+            .scrambled, input, button {
+                font-family: monospace;
+                font-size: 2em;
+            }
+            .correct, .incorrect{
+                display:none;
+                position:absolute;
+                top:100px;
+                left:100px;
+                background-color:rgb(148, 103, 148);
+                font-weight:bold;
+                border: solid 5px rgb(163, 155, 194);
+                height:50px;
+                width:150px;
+                text-align:center;
+            }
+            
+        </style>
+    </head>
+    <body>
+    
+    <h1>Word game!</h1>
+    
+    <div class="correct"><p>YAY, YOU GOT IT RIGHT!!</p></div>
+    <div class="incorrect"><p>Sorry, try again</p></div>
+    <form id="joke-form">
+        <label>
+            Unscramble these letters to form a word:<Br>
+            <span class="scrambled"></span><br>
+            <input type="text" size="10">
+        </label>
+        <button type="submit">Check</button>
+    </form>
+    <div id="result" class="hide"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        var wordsScrambled = ["REYJUQ", "UFN", "TCOMPERU"];
+        var wordsResult = ["JQUERY", "FUN", "COMPUTER"];
+        // when the user submits the form,
+        //   check that their answer is correct
+        //   and show them appropriate message
+        var random = Math.floor((Math.random()*3))
+        $(".scrambled").text(wordsScrambled[random]);
+        
+        $('#joke-form').on("submit", function(event){
+            event.preventDefault();
+            var $answer = $(this).find('[type=text]');
+            var answer = $answer.val();
+            if(answer===wordsResult[random]){
+                $('.correct').css("display", "block").fadeOut(2500);
+                $answer.val("");
+                random = Math.floor((Math.random()*3));
+                $(".scrambled").text(wordsScrambled[random]);
+            }
+            else{
+            $('.incorrect').css("display", "block").fadeOut(2500);
+        }
+        })
+    </script>
+    </body>
+</html>
