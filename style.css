@@ -196,6 +196,22 @@ img{
   background-position:0% 50%;
 }
 
+.project-tile > p.title {
+	align-items:center;
+	background-color:#AB90D4;
+	bottom:3rem;
+	color:#fafafa;
+	display:flex;
+	font-weight:bold;
+	justify-content:center;
+	left:0;
+	padding:10px;
+	position:absolute;
+	text-align:center;
+	margin:0;
+	width:100%;
+	height:7rem;
+}
 .project-tile > p {
 	align-items:center;
 	background-color:#AB90D4;
@@ -210,9 +226,8 @@ img{
 	text-align:center;
 	margin:0;
 	width:100%;
-	height:10rem;
+	height:3rem;
 }
-
 .project-tile > span {
 	display:inline-block;
 	margin:auto 0.8rem;
@@ -225,7 +240,8 @@ img{
 
 .project-tile iframe{
    border: 0;
-   height: 90%;
+   height: 100%;
+   padding:0px;
    left: 0;
    top: 0;
    width: 100%;
@@ -355,7 +371,15 @@ div.details
 {
     text-align:left;
     overflow:auto;
-    height:90%;
+    height:100%;
     font-weight: normal;
-
+    padding:10px 10px 10px 10px;
+    margin-bottom: 25px;
+}
+div.container{
+overflow:auto;
+height:90%;
+width:100%;
+background-size: cover;
+font-weight:normal;
 }
